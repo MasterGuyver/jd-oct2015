@@ -3,7 +3,7 @@ package hw567;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Bullet implements Drawable, Destroyable {
+public class Bullet {
 	private int speed = 5;
 	private int x;
 	private int y;
@@ -30,11 +30,6 @@ public class Bullet implements Drawable, Destroyable {
 	}
 	public void updateY(int d) {
 		y+=d;
-	}
-	
-	public void draw(Graphics g) {
-		g.setColor(new Color(255, 255, 0));
-		g.fillRect(this.getX(), this.getY(), 14, 14);
 	}
 	
 	public void destroy() {
