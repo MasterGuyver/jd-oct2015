@@ -20,9 +20,12 @@ public class Tiger extends Tank {
     public int getArmor() {
         return this.armor;
     }
-    public void printInformation() {
-        System.out.println("Tank is Tiger");
-	super.printInfo();
-        System.out.println("Armor: "+getArmor());
+    @Override
+    public void move() {
+        System.out.println("Tiger is move");
+    }
+    @Override
+    public String toString() {
+        return "Tank is Tiger. "+super.toString()+" Armor is "+getArmor()+".";
     }
 }

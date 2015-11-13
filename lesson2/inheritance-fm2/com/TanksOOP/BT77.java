@@ -11,6 +11,7 @@ public class BT77 extends Tank {
        super(color,crew,maxSpeed);
     }
     public void printInformation() {
+	System.out.println("Tank is BT77");
         super.printInfo();
     }
 }

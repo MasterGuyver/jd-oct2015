@@ -52,10 +52,12 @@ public class Tank {
             this.maxSpeed = 10; // minimum
         }
     }
-    public void printInfo() {
-        System.out.print("Tank color is ");
-        System.out.println(this.getColor()+" .");
-        System.out.print("Crew "+this.getCrew()+" humans. ");
-        System.out.println("Speed "+this.getMaxSpeed()+".");
+    public void move() {
+        System.out.println("Tank is move");
+    }
+    @Override
+    public String toString() {
+        return "Tank color is "+this.getColor()+" ."+"Crew "+this.getCrew()+" humans. "+
+                "Speed " + this.getMaxSpeed() + ".";
     }
 }
