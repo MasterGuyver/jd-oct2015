@@ -1,4 +1,4 @@
-package Shapes;
+package hw567;
 import java.awt.Graphics;
 
 public interface Drawable {
