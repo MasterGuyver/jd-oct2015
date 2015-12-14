@@ -120,7 +120,6 @@ public class SimpleLinkedList implements Iterable<Object> {
 	public void addAfter(Object prev, Object o) {
 		Node prevPointer = null;
 		Node cp = root;
-		
 		do {
 			if (cp.obj == prev) {
 				prevPointer = cp;
@@ -128,8 +127,9 @@ public class SimpleLinkedList implements Iterable<Object> {
 			}
 			cp =cp.ref;
 		}
-		while(cp!=null && cp.ref != null);
-		if(prevPointer == null) {
+		while(cp!= null);
+		System.out.println(prevPointer.obj);
+		if(prevPointer == null ) {
 			throw new IllegalStateException("List does not contains prev objects");
 		}
 		Node n = new Node();

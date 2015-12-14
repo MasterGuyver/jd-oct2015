@@ -60,6 +60,7 @@ public class Start {
 		all.addAfter(mark,"z");
 		all.addAfter("z","z");
 		all.addAfter("z","z");
+		all.addAfter("test 0","z");
 	System.out.println(all.getSize()+" ");
 	all.printList();
 	

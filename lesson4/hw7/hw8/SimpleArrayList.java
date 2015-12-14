@@ -1,4 +1,3 @@
-package hw5;
 
 import java.util.Comparator;
 import java.util.Iterator;
@@ -43,23 +42,6 @@ public class SimpleArrayList implements Iterable<Object> {
 			}
 			size--;
 		}
-		
-		/*public void remove(Object cp) {
-			int i = position(cp);
-			if (i < 0) {
-				throw new IllegalStateException(
-						"Cannot remove element, incorrect name.");
-			} else {
-				if (i == max - 1) {
-					obj[i] = null;
-				}
-				else if (obj[i] == cp) {
-					shiftLeft(i);
-				}
-				size--;
-			}
-		}
-*/
 
 		@Override
 		public boolean hasNext() {
@@ -118,8 +100,8 @@ public class SimpleArrayList implements Iterable<Object> {
 		obj = temp;
 	}
 	
-	private void shiftRight(int i) {
-		for (int j = i; j > 0; j--) {
+	private void shiftRight(int i,int k) {
+		for (int j = i; j > k; j--) {
 			obj[j] = obj[j - 1];
 		}
 	}
@@ -148,7 +130,7 @@ public class SimpleArrayList implements Iterable<Object> {
 			if (i == max - 1) {
 				extend();
 			}
-			shiftRight(i);
+			shiftRight(i,0);
 		}
 		obj[0] = o;
 		size++;
@@ -162,23 +144,23 @@ public class SimpleArrayList implements Iterable<Object> {
 			obj[size++] = o;
 		 }
 		 else {
-			 throw new IllegalStateException("Cannjt add element size of list is null");
+			 throw new IllegalStateException("Cannot add element size of list is null");
 		 }
 	}
 
-	public void addAfter(Object o, Object prev) {
+	public void addAfter(Object prev,Object o) {
 		int i = position(prev);
-		if (i == max - 1) {
+		if (i < 0 ) {
+			throw new IllegalStateException(
+					"List does not contains prev objects.");
+		}
+		else if (i == size-1) {
 			addLast(o);
 		}
 	    else if (obj[i + 1] != null) {
-			shiftRight(size+1);
+			shiftRight(size+1,i);
 			obj[i + 1] = o;
 			size++;
-		}
-		else if (i < 0 ) {
-			throw new IllegalStateException(
-					"List does not contains prev objects.");
 		}
 	}
 

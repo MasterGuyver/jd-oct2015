@@ -1,4 +1,3 @@
-package hw5;
 
 public class Start {
 
@@ -39,11 +38,16 @@ public class Start {
 	
     String middle = new String("middle");
 	
-	sal.addAfter(middle,mark);
+	sal.addAfter(mark,middle);
 	System.out.print(sal.getSize()+" ");
 	sal.printList();
 	
-	sal.addAfter("middle (-1)", mark);
+	sal.addAfter(mark,"middle (-1)");
+		sal.addAfter("middle (-1)","z");
+		sal.addAfter("z","z");
+		sal.addAfter("z","z");
+		sal.addAfter("z","z");
+		sal.addAfter("test 0","пщз");
 	System.out.println(sal.getSize()+" ");
 	sal.printList();
 	
@@ -56,7 +60,7 @@ public class Start {
 	System.out.print(sal.getSize()+ " ");
 	sal.printList();
 	
-	sal.addAfter("last", mark);
+	sal.addAfter(mark,"last");
 	System.out.print(sal.getSize()+" ");
 	sal.printList();
 	
@@ -69,7 +73,7 @@ public class Start {
 	System.out.print(sal.getSize()+ " ");
 	sal.printList();
 	
-	sal.addAfter("last",mark);
+	sal.addAfter(mark,"last");
 	System.out.print(sal.getSize()+" ");
 	System.out.println("object "+sal.getObject());
 	sal.printList(); 	

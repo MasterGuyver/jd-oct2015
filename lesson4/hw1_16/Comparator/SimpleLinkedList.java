@@ -117,7 +117,7 @@ public class SimpleLinkedList implements Iterable<Object> {
 			}
 			cp =cp.ref;
 		}
-		while(cp!=null && cp.ref != null);
+		while(cp!=null);
 		if(prevPointer == null) {
 			throw new IllegalStateException("List does not contains prev objects");
 		}
