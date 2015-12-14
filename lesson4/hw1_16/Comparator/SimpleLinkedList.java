@@ -106,7 +106,7 @@ public class SimpleLinkedList implements Iterable<Object> {
 		size++;
 	}
 
-	public void addAfter(Object o, Object prev) {
+	public void addAfter(Object prev,Object o) {
 		Node prevPointer = null;
 		Node cp = root;
 		

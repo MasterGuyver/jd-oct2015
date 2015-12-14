@@ -1,4 +1,3 @@
-package b9_15;
 
 import java.util.Comparator;
 import java.util.Iterator;
@@ -118,7 +117,7 @@ public class SimpleLinkedList implements Iterable<Object> {
 		size++;
 	}
 
-	public void addAfter(Object o, Object prev) {
+	public void addAfter(Object prev, Object o) {
 		Node prevPointer = null;
 		Node cp = root;
 		

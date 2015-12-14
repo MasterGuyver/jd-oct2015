@@ -1,4 +1,3 @@
-package b9_15;
 import java.util.Iterator;
 public class Start {
 
@@ -9,7 +8,6 @@ public class Start {
 	
 	SimpleLinkedList all = new SimpleLinkedList();
 	all.addFirst("test 1");
-	
 	all.addFirst("test 2");
 	all.addFirst("test 3");
 	System.out.println("Iterator one!");
@@ -54,11 +52,14 @@ public class Start {
 	
     String middle = new String("middle");
 	
-	all.addAfter(middle,mark);
+	all.addAfter(mark,middle);
 	System.out.print(all.getSize()+" ");
 	all.printList();
 	
-	all.addAfter("middle (-1)", mark);
+	all.addAfter(mark,"middle (-1)");
+		all.addAfter(mark,"z");
+		all.addAfter("z","z");
+		all.addAfter("z","z");
 	System.out.println(all.getSize()+" ");
 	all.printList();
 	
@@ -71,7 +72,7 @@ public class Start {
 	System.out.print(all.getSize()+ " ");
 	all.printList();
 	
-	all.addAfter("last", mark);
+	all.addAfter(mark,"last");
 	System.out.print(all.getSize()+" ");
 	all.printList();
 	
@@ -84,7 +85,7 @@ public class Start {
 	System.out.print(all.getSize()+ " ");
 	all.printList();
 	
-	all.addAfter("last",mark);
+	all.addAfter(mark,"last");
 	System.out.print(all.getSize()+" ");
 	all.printList();
 	
