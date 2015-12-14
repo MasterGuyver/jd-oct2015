@@ -2,9 +2,6 @@
  * Created by User on 27.11.2015.
  */
 public class Drink extends AbstractSubject {
-    public Drink() {
-        super();
-    }
     public void doOrder(String name,String[] ingredients,int[] amounts,Storage storage) {
         Ingredient temp;
         float price=0;
