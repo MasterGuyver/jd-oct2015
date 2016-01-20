@@ -33,5 +33,7 @@ public interface Tank extends Drawable, Destroyable {
 	public boolean hasDestroyed();
 	
 	public void turn(Direction direction);
+
+	public boolean isTankBullet(Bullet bullet);
 	
 }

@@ -9,6 +9,8 @@ public class Tiger extends AbstractTank {
 	private int armor;
 	private int selector;
 	private Tank defender;
+	private Object[] actoins = new Object[64];;
+	private int step = 0;
 
 	public Tiger(BattleField bf) {
 		super(bf);
@@ -19,6 +21,13 @@ public class Tiger extends AbstractTank {
 		names[2] = "tiger_left.png";
 		names[3] = "tiger_right.png";
 		setImages(names);
+		String location = bf.getAgressorLocation();
+		int x = Integer.parseInt(location.split("_")[1]);
+		int y =	Integer.parseInt(location.split("_")[0]);
+		updateX(-128+x);
+		updateY(-512+y);
+		turn(Direction.DOWN);
+		selector = 0;
 	}
 
 	public Tiger(BattleField bf, int x, int y, Direction direction) {
@@ -30,6 +39,7 @@ public class Tiger extends AbstractTank {
 		names[2] = "tiger_left.png";
 		names[3] = "tiger_right.png";
 		setImages(names);
+		turn(Direction.DOWN);
 		selector=0;
 		
 	}
@@ -74,12 +84,8 @@ public class Tiger extends AbstractTank {
 		}
 	}
 
-	private Object[] actoins;
-	private int step = 0;
-
 private void agressorOnEagle() {
 		int count = 0;
-		actoins = new Object[4];
 		String location = getBattleField().getQuadrant(this.getX(), this.getY());
 		int agru = Integer.parseInt(location.split("_")[1]);
 		int agrv = Integer.parseInt(location.split("_")[0]);
@@ -101,7 +107,7 @@ private void agressorOnEagle() {
 					actoins[count++] = Action.MOVE;
 				}
 			}
-			else if (agrv < 8) {
+			if (agrv < 8) {
 				if(agrv+1 <=8)
 				actoins[count++] = Direction.DOWN;
 					if (!hasNoBlock(agru,agrv+1)) {
@@ -114,7 +120,6 @@ private void agressorOnEagle() {
 
    private void agressorOnDefender() {
 		int stp = 0;
-		actoins = new Object[4];
 		int x = this.getX();
 		int y = this.getY();
 		int separator = getBattleField().getQuadrant(x, y).indexOf("_");
@@ -124,8 +129,6 @@ private void agressorOnEagle() {
 		separator = getBattleField().getQuadrant(x, y).indexOf("_");
 		int vd = Integer.parseInt(getBattleField().getQuadrant(x,y).substring(0, separator));
 		int ud = Integer.parseInt(getBattleField().getQuadrant(x,y).substring(separator + 1));
-		System.out.println(ut+" "+vt);
-		System.out.println(ud+" "+vd);
 		if (ut == ud) {
 			if(vt < vd) {
 				actoins[stp++] = Direction.DOWN;
@@ -187,7 +190,7 @@ private void agressorOnEagle() {
 
 	private boolean hasNoBlock(int v, int u) {
 	boolean flag = false;
-	if (u>=0 && u <9 && v>=0 && v<9) { 
+	if (u>-1 && u <9 && v>-1 && v<9) {
 	flag = flag || getBattleField().getBlock(u, v) instanceof Water ||  
 			getBattleField().getBlock(u, v) instanceof Blank;
 	}

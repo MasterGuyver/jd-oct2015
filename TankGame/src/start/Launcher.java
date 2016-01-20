@@ -6,10 +6,10 @@ import java.util.Arrays;
 
 public class Launcher {
 	public static void main(String[] args) throws Exception {
+
 		SceneSelect select = new SceneSelect();
-		System.out.println(Arrays.toString(select.getField()));
-		ActionField af = new ActionField(select.getField(),select.getTankName());
+		//ActionField af = new ActionField();
+		//af.runTheGame();
 		SceneEnd en = new SceneEnd();
-		//
 	}
 }
